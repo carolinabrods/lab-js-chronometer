@@ -1,22 +1,46 @@
 class Chronometer {
+  // Iteration 1
   constructor() {
-    // ... your code goes here
+    this.currentTime = 0;
+    this.intervalId = null;
   }
 
+  // Iteration 2
   start(printTimeCallback) {
-    // ... your code goes here
+    // assign intervalId to be able to clear it later when we need to stop the timer
+    this.intervalId = setInterval(() => {
+      // increment by 1 second the current time
+      this.currentTime += 1;
+
+      // invoke the callback
+      printTimeCallback();
+    }, 1000);
+    return this.currentTime;
   }
 
+  // Iteration 3
   getMinutes() {
-    // ... your code goes here
+    // calculate the minutes
+    this.currentTimeInMinutes = this.currentTime / 60;
+    // return the numbers that have passed as integer
+    return Math.floor(this.currentTimeInMinutes);
   }
 
+  // Iteration 4
   getSeconds() {
-    // ... your code goes here
+    // calculate the remaining seconds
+    this.currentRemainingSeconds = this.currentTime % 60;
+    return this.currentRemainingSeconds;
   }
 
+  // Iteration 5
   computeTwoDigitNumber(value) {
-    // ... your code goes here
+    // convert any number into a two-digits string representation
+    if (value < 10) {
+      return '0' + value.toString();
+    } else {
+      return value.toString();
+    }
   }
 
   stop() {
