@@ -59,5 +59,8 @@ class Chronometer {
   // Iteration 8 - BONUS
   split() {
     // split time: a string showing the minutes and seconds in the "mm:ss" format
+    return `${this.computeTwoDigitNumber(
+      this.getMinutes()
+    )}:${this.computeTwoDigitNumber(this.getSeconds())}`;
   }
 }
