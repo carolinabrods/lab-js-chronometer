@@ -12,8 +12,10 @@ class Chronometer {
       // increment by 1 second the current time
       this.currentTime += 1;
 
-      // invoke the callback
-      printTimeCallback();
+      // check if the callback exists before invoking it
+      if (printTimeCallback) {
+        printTimeCallback();
+      }
     }, 1000);
     return this.currentTime;
   }
@@ -43,15 +45,19 @@ class Chronometer {
     }
   }
 
+  // Iteration 6
   stop() {
-    // ... your code goes here
+    // clear the existing interval timer
+    clearInterval(this.intervalId);
   }
 
+  // Iteration 7
   reset() {
-    // ... your code goes here
+    this.currentTime = 0;
   }
 
+  // Iteration 8 - BONUS
   split() {
-    // ... your code goes here
+    // split time: a string showing the minutes and seconds in the "mm:ss" format
   }
 }
